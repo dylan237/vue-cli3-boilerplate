@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+    transition: 0.5s all;
+    -ms-overflow-style: scrollbar;
+    color: $text-color;
+    text-size-adjust: 100%;
+}
+body {
+    // background-color: #F0F0F0;
+}
+* {
+    touch-action: pan-y;
+}
+*,
+*::before,
+*::after {
+    outline: none;
+    box-sizing: inherit;
+}
+a {
+    text-decoration: none;
+    color: $text-color;
+
+    &:hover {
+        color: $link-color-hover;
+    }
+}
+
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    color: #e4e67c;
+}

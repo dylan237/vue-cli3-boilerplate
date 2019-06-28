@@ -1,0 +1,10 @@
+@mixin bg($img) {   
+  background: url("../images/#{$img}");
+  width: image-width("../images/#{$img}");  
+  height: image-height("../images/#{$img}");  
+}
+@mixin text-hide {
+  white-space: nowrap;
+  text-indent: 110%;
+  overflow: hidden;
+}

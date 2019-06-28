@@ -1,0 +1,180 @@
+ /// Select all children between `$first` and `$last`.
+  @mixin between($first, $last) {
+    &:nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+      @content;
+    }
+  }
+  
+  /// Select all even children between `$first` and `$last`.
+  @mixin even-between($first, $last) {
+    &:nth-child(even):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+      @content;
+    }
+  }
+  
+  /// Select all odd children between `$first` and `$last`.
+  @mixin odd-between($first, $last) {
+    &:nth-child(odd):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+      @content;
+    }
+  }
+  
+  /// Select all `$num` children between `$first` and `$last`.
+  /// 從$first開始每隔$num個受影響，直到$last結束
+  @mixin n-between($num, $first, $last) {
+    &:nth-child(#{$num}n):nth-child(n + #{$first}):nth-child(-n + #{$last}) {
+      @content;
+    }
+  }
+  
+  /// Select all children between the `$num` first and the `$num` last.
+  @mixin all-but-first-last($num) {
+    &:nth-child(n + #{$num}):nth-last-child(n + #{$num}) {
+      @content;
+    }
+  }
+  
+  
+  /// This quantity-query mixin will only select the first of `$limit` items. It will not
+  /// work if there is not as much as item as you set in `$limit`.
+  @mixin first-of($limit) {
+    &:nth-last-child(#{$limit}):first-child {
+      @content;
+    }
+  }
+  
+  /// This quantity-query mixin will only select the last of `$limit` items. It will not
+  /// if there is not as much as item as you set in `$limit`.
+  @mixin last-of($limit) {
+    &:nth-of-type(#{$limit}):nth-last-of-type(1) {
+      @content;
+    }
+  }
+  
+  /// This quantity-query mixin will select every items if there is at least `$num` items. It will not
+  /// if there is not as much as item as you set in `$num`.
+  @mixin at-least($num) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+  
+    &:nth-last-child(n + #{$num}),
+    &:nth-last-child(n + #{$num}) ~ #{$child} {
+      @content;
+    }
+  }
+  
+  /// This quantity-query mixin will select every items if there is at most `$num` items. It will not
+  /// if there is not as much as item as you set in `$num`.
+  @mixin at-most($num) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+  
+    &:nth-last-child(-n + #{$num}):first-child,
+    &:nth-last-child(-n + #{$num}):first-child ~ #{$child} {
+      @content;
+    }
+  }
+  
+  /// This quantity-query mixin will select every items only if there is between `$min` and `$max` items.
+  @mixin in-between($min, $max) {
+    $selector: &;
+    $child: nth(nth($selector, -1), -1);
+  
+    &:nth-last-child(n + #{$min}):nth-last-child(-n + #{$max}):first-child,
+    &:nth-last-child(n + #{$min}):nth-last-child(-n + #{$max}):first-child ~ #{$child} {
+      @content;
+    }
+  }
+  
+  /// Select the first exact child
+  @mixin first-child() {
+    &:first-of-type {
+      @content
+    }
+  }
+
+  /// Select the last exact child
+
+  @mixin last-child() {
+    &:last-of-type {
+      @content
+    }
+  }
+  
+  /// Select all even children.
+  @mixin even() {
+    &:nth-child(even) {
+      @content;
+    }
+  }
+  
+  /// Select all odd children.
+  @mixin odd() {
+    &:nth-child(odd) {
+      @content;
+    }
+  }
+  
+  /// Select only the first and last child.
+  @mixin first-last() {
+    &:first-child,
+    &:last-child {
+      @content;
+    }
+  }
+  
+  /// Will only select the child if it’s unique.
+  @mixin unique() {
+    &:only-child {
+      @content;
+    }
+  }
+  
+  /// Will only select the child if it’s unique.
+  @mixin only() {
+    &:only-child {
+      @content;
+    }
+  }
+  
+  /// Will only select children if they are not unique. Meaning if there is at
+  /// least 2 children, the style is applied.
+  @mixin not-unique() {
+    &:not(:only-child) {
+      @content;
+    }
+  }
+  
+  
+  /// This mixin is used to automatically sort z-index in numerical order. But it
+  /// can also sort them in anti-numerical order, depending the parameters you use.
+  /// @group using functions
+  /// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+  /// @param {number} $num - Number of children
+  /// @param {string} $direction [forward] - Direction of the sort
+  /// @param {number} $index [0] - Index of the sorting
+  @mixin child-index($num, $direction: 'forward', $index: 0) {
+    @for $i from 1 through $num {
+      @if ($direction == 'forward') {
+        &:nth-child(#{$i}) {
+          z-index: order-index($i, $index);
+          @content;
+        }
+      } @else if ($direction == 'backward') {
+        &:nth-last-child(#{$i}) {
+          z-index: order-index($i, $index);
+          @content;
+        }
+      }
+    }
+  }
+  
+  /// Used by the child-index mixin. It will returned the proper sorted numbers
+  /// depending on the `$index` value.
+  /// @access private
+  /// @param {number} $num - Number of children
+  /// @param {number} $index - Index of the sorting
+  @function order-index($i, $index) {
+    @return ($index + $i);
+  }
+  
