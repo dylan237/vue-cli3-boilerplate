@@ -18,6 +18,7 @@ export default {
     this.$store.dispatch('SETDATEPICKERDATE', { starttime:'123', endtime:'123'})
     console.log(this.getVuexData);
     console.log(this.getVuexStaticTime);
+    console.log(process.env.VUE_APP_DEMO);
   },
   computed: {
     getVuexData() {
