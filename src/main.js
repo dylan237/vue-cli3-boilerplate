@@ -5,7 +5,7 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLodash from 'vue-lodash';
-import '@/assets/scss/main.scss'
+// import '@/assets/scss/main.scss'
 
 const options = { name: 'lodash' };
 Vue.config.productionTip = false
