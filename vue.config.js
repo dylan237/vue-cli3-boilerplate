@@ -24,14 +24,14 @@ module.exports = {
       })
     ],
   },
-  // css: {
-  //   loaderOptions: {
-  //     sass: {
-  //       data: '@import "@/assets/scss/main.scss";'
-  //     }
-  //   },
-  //   sourceMap: true,
-  // },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: '@import "@/assets/scss/main.scss";'
+      }
+    },
+    sourceMap: true,
+  },
   // images compressor
   chainWebpack: config => {
     config.module
