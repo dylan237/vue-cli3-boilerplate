@@ -2,6 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ '測試 - ' | filterDemo }}
   </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
     console.log(this.getVuexData);
     console.log(this.getVuexStaticTime);
     console.log(process.env.VUE_APP_DEMO);
+    this.imMixinMethod();
   },
   computed: {
     getVuexData() {
