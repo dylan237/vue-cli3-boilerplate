@@ -30,9 +30,9 @@ const getters = {
   },
   GETORIGINDATA(state) {
     return {
-            starttime: state.datePickerStartTime,
-            endtime: state.datePickerEndTime,
-            }
+      starttime: state.datePickerStartTime,
+      endtime: state.datePickerEndTime,
+    }
   }
 }
 
