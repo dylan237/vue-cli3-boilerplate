@@ -1,0 +1,35 @@
+@mixin underline-animation-before($color: red, $width: 100%, $height: 1px, $dir: 'center') {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: $width;
+    height: $height;
+    transform: scaleX(0);
+    background-color: $color;
+    // transform-origin: 100% 0;
+    // transform-origin: left bottom;
+    transform-origin: #{$dir};
+    transition: transform 0.25s ease-out;
+  }
+}
+
+@mixin underline-animation-after($dir: 'center') {
+  &::after {
+      transform: scaleX(1) !important;
+      // transform-origin: 0 0;
+      // transform-origin: right bottom !important;
+      transform-origin: #{$dir}!important;
+  }
+}
+
+// 目標元素套上
+// .target-node {
+//   @include underline-animation-before(#FFFFFF, 100%, 1px, '100% 0');
+// }
+
+// 變化 (hover || click後套上.underline-dynamic，要手動新增該className)
+// .underline-dynamic {
+//   @include underline-animation-after('center');
+// }
