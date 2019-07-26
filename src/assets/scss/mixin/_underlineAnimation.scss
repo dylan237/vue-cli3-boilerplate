@@ -1,4 +1,5 @@
 @mixin underline-animation-before($color: red, $width: 100%, $height: 1px, $dir: 'center') {
+  position: relative;
   &::after {
     content: '';
     position: absolute;
