@@ -1,0 +1,11 @@
+@mixin customSelectArrow($bgc: gray, $color: #fff, $imgUrl: 'http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png', $width: '100px', $imgWidth: '20px' ) {
+  background-color: #{$bgc};
+  color: #{$color};
+  background-repeat: no-repeat;
+  background-image: url(#{$imgUrl});
+	background-position: right;
+  -webkit-appearance: none;
+  border: 0;
+  width: #{$width};
+	background-position-x: calc(#{$width} - #{$imgWidth});
+}
