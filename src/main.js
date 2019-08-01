@@ -5,14 +5,14 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLodash from 'vue-lodash';
-import mixins from '@/mixins/mixins.js'
 import filters from '@/filters/filters.js';
+import '@/mixins';
+import '@/components';
 
 const options = { name: 'lodash' };
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(VueLodash, options);
-Vue.mixin(mixins);
 Vue.filter('filterDemo', filters);
 
 new Vue({

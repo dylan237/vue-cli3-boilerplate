@@ -1,4 +1,4 @@
-import * as types from '../mutations_type.js'
+import * as types from '@/store/mutations_type.js'
 
 const state = {
   datePickerStartTime: '',
