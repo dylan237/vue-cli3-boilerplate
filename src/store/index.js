@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 //動態載入
 // eslint-disable-next-line no-undef
-let mutationContext = require.context('./modules', false, /.*\.js/);
+let mutationContext = require.context('./modules', true, /.*\.js/);
 let modules = {}
 mutationContext.keys().forEach(k => {
   let n = k.substring(2, k.length - 3)
