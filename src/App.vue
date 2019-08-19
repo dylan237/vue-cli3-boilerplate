@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <span>123</span>
-    <span>正黑體</span>
+    <span>Microsoft JhengHei</span>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -11,9 +10,11 @@
 </template>
 
 <style lang="scss">
+@import '@/assets/scss/main.scss';
+
 span { 
-  @include color-contrast('primary', true);
-  font-size: 100px;
+  @include color-contrast('dylan', true);
+  font-size: 50px;
 }
 #app {
   -webkit-font-smoothing: antialiased;

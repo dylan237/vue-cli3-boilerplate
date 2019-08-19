@@ -27,7 +27,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        data: '@import "@/assets/scss/main.scss";'
+        // data: '@import "@/assets/scss/main.scss";'
       }
     },
     sourceMap: true,
