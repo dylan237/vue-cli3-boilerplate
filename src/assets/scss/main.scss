@@ -1,20 +1,22 @@
+@import "node_modules/bootstrap/scss/_functions";
+@import "config/_bootstrap-variable";
+@import "node_modules/bootstrap/scss/_mixins";
+
+@import "node_modules/bootstrap/scss/_grid";
+@import "node_modules/bootstrap/scss/_images";
+
+@import "node_modules/bootstrap/scss/_buttons";
+@import "node_modules/bootstrap/scss/_tables";
+@import "node_modules/bootstrap/scss/_forms";
+@import "node_modules/bootstrap/scss/_card";
+@import "node_modules/bootstrap/scss/_utilities";
+
 @import "config/_variables";
+
 @import "mixin/_mixin";
-@import "mixin/_btnhack";
-@import "mixin/_scrollbar";
-@import 'mixin/_underlineAnimation';
-@import "extend/_clearfix";
-@import "extend/_positionCenter";
+@import "extend/_extends";
 
 @import "config/_reset";
 @import "config/_reboot";
-@import "config/_typography";
-@import "config/_breakpoint";
 
-@import 'utilities/_utilities';
-@import 'utilities/_hidetext';
-@import 'utilities/_clearfix';
-
-@import "components/_button";
-@import "components/_form";
-@import "components/_tables";
+// @import "utilities/_utilities";

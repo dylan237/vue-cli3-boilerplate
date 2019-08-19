@@ -1,6 +1,6 @@
-$l : 1024px;
-$m: 768px;
-$s: 320px;
+// $l : 1024px;
+// $m: 768px;
+// $s: 320px;
 
 @mixin bp($type, $max, $min) {
     @if $type == 1 {

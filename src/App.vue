@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <span>123</span>
+    <span>正黑體</span>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -9,8 +11,11 @@
 </template>
 
 <style lang="scss">
+span { 
+  @include color-contrast('primary', true);
+  font-size: 100px;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

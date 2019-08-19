@@ -1,16 +1,20 @@
-@mixin bg($img) {   
-  background: url("../images/#{$img}");
-  width: image-width("../images/#{$img}");  
-  height: image-height("../images/#{$img}");  
-}
-@mixin text-hide {
-  white-space: nowrap;
-  text-indent: 110%;
-  overflow: hidden;
-}
+@import './customSelectTagArrow';
+@import './scrollbar';
+@import './underlineAnimation';
+@import './breakpoint';
+
 @mixin flex($justify-content: 'center', $align-item: 'center') {
   display: flex;
   justify-content: #{$justify-content};
   align-items: #{$align-item};
 }
-
+@mixin color-contrast($bgc: 'primary', $is-hover: false) {
+  background-color: theme-color(#{$bgc});
+  color: color-yiq(theme-color(#{$bgc}));
+  @if $is-hover {
+    transition: background-color .2s ease;
+    &:hover {
+      background-color: theme-color-level(#{$bgc}, 5);
+    }
+  }
+}
